@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        sh 'docker build . -t manjudevops301-hellonode:1'
+        bat 'docker build . -t manjudevops301-hellonode:1'
     }
 
     stage('Test image') {
@@ -19,7 +19,7 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
 
         app.inside {
-            sh 'echo "Tests passed"'
+            bat 'echo "Tests passed"'
         }
     }
 
