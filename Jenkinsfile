@@ -10,7 +10,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        bat 'docker build . -t manjudevops301-hellonode:1'
+        bat 'docker build . -t manjudevops301/hellonode:1'
     }
 
     stage('Test image') {
