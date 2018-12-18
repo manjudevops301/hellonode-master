@@ -28,8 +28,12 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-			bat 'docker push manjudevops301/hellonode'
-        }
+		 
+		 withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+			bat "docker login -u manjudevops301 -p ${dockerHubPwd}"
+		}
+			
+			bat 'docker push manjudevops301/hellonode:1'
+        
     }
 }
